@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@FeignClient(name = "${feign.name}", url = "${feign.url}")
+@FeignClient(name = "${spring.application.name}", url = "${feignClient.url}")
 public interface EmployeeServiceFeign {
 
     @GetMapping
