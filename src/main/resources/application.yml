@@ -1,18 +1,14 @@
-server:
-  port: 8182
-
-spring:
-  application:
-    name: employee-service
+server.port: ${PORT:8182}
 
 eureka:
+  instance:
+    hostname: ${DOMAIN_NAME:localhost}
+    non-secure-port: 80
   client:
     registerWithEureka: true
     fetchRegistry: true
     serviceUrl:
-      defaultZone: http://localhost:8661/eureka
-    instance:
-      hostname: localhost
+      defaultZone: ${EUREKA_URL:http://localhost:8661}/eureka/
 
 feignClient:
   url: http://localhost:8888/api/employees
