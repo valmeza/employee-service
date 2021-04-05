@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/employees")
 public class EmployeeController {
 
     private final EmployeeServiceFeign employeeServiceFeign;
@@ -17,28 +17,28 @@ public class EmployeeController {
         this.employeeServiceFeign = employeeServiceFeign;
     }
 
-    @GetMapping("/employees")
+    @GetMapping
     public List<Employee> getAllEmployees() {
         return employeeServiceFeign.getEmployees();
     }
 
-    @GetMapping("/employees/{id}")
+    @GetMapping("/{id}")
     public Employee getEmployeeById(@PathVariable long id) {
         return employeeServiceFeign.getEmployee(id);
     }
 
-    @PostMapping("/employees")
+    @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Employee saveEmployee(Employee employee) {
         return employeeServiceFeign.save(employee);
     }
 
-    @PutMapping("/employees/update")
+    @PutMapping("/update")
     public Employee updateEmployee(@RequestBody Employee employee) {
         return employeeServiceFeign.update(employee);
     }
 
-    @DeleteMapping("/employees/{id}")
+    @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteEmployee(@PathVariable long id) {
         employeeServiceFeign.delete(id);

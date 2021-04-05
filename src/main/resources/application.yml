@@ -13,5 +13,5 @@ eureka:
       defaultZone: ${EUREKA_URL:http://localhost:8661}/eureka/
 
 feignClient:
-  url: https://employee-crud-service.herokuapp.com/api/employees
+  url: https://employee-crud-service.herokuapp.com/employees
 #  url: http://localhost:8888/api/employees
