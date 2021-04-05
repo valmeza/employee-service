@@ -21,6 +21,6 @@ public interface EmployeeServiceFeign {
     @PutMapping("/update")
     Employee update(@RequestBody Employee employee);
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     void delete(@PathVariable long id);
 }
