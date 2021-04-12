@@ -29,7 +29,7 @@ public class EmployeeController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Employee saveEmployee(Employee employee) {
+    public Employee saveEmployee(@RequestBody Employee employee) {
         return employeeServiceFeign.save(employee);
     }
 
